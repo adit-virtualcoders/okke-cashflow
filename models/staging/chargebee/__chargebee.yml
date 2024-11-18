@@ -1,0 +1,16 @@
+version: 2
+
+sources: 
+  - name: chargebee
+    schema: OkkeChargeBee
+    # freshness:
+    #   warn_after: {count: 3, period: day}
+    #   error_after: {count: 30, period: day}
+
+    tables:
+      - name: subscriptions
+        identifier: stage_chargebee_subscriptions
+      - name: customers
+        identifier: stage_chargebee_customers
+      - name: invoices
+        identifier: stage_chargebee_invoices

@@ -1,0 +1,34 @@
+name: 'dbt_okke_data_modelling'
+version: '1.0.0'
+config-version: 2
+
+profile: 'okke'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets: 
+  - "target"
+  - "dbt_packages"
+
+vars:
+  secs_idle_time_sessions: "1800"
+  days_lookback_window: "30"
+  min_lead_date: "2022-09-01"
+
+models:
+  dbt_okke_data_modelling:
+    +materialized: view
+    
+    marts:
+      +materialized: view
+
+    reporting:
+      +materialized: view
+
+    staging:
+      +materialized: view

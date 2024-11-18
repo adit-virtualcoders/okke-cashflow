@@ -1,0 +1,40 @@
+version: 2
+
+sources: 
+  - name: segment_web
+    schema: src__web_prod
+    freshness:
+      warn_after: {count: 1, period: day}
+      error_after: {count: 3, period: day}
+    loaded_at_field: sent_at
+
+    tables:
+      - name: pages
+      - name: identifies
+      - name: users
+
+  - name: google_ads
+    schema: src__google_ads
+    freshness:
+      warn_after: {count: 1, period: day}
+      error_after: {count: 3, period: day}
+    loaded_at_field: received_at
+
+    tables:
+      - name: campaign_performance_reports
+      - name: click_performance_reports
+      - name: campaigns
+
+  - name: meta_ads
+    schema: src__meta_ads
+    freshness:
+      warn_after: {count: 1, period: day}
+      error_after: {count: 3, period: day}
+    loaded_at_field: received_at
+
+    tables:
+      - name: insights
+      - name: ads
+        freshness: null
+      - name: campaigns
+        freshness: null

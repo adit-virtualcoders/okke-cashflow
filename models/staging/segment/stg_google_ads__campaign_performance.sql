@@ -1,0 +1,55 @@
+with source as (
+      select * from {{ source('google_ads', 'campaign_performance_reports') }}
+),
+renamed as (
+    select
+        {{ adapter.quote("id") }},
+        {{ adapter.quote("received_at") }},
+        {{ adapter.quote("advertising_channel_sub_type") }},
+        {{ adapter.quote("video_quartile_25_rate") }},
+        {{ adapter.quote("impressions") }},
+        {{ adapter.quote("interaction_types") }},
+        {{ adapter.quote("uuid_ts") }},
+        {{ adapter.quote("view_through_conversions") }},
+        {{ adapter.quote("value_per_all_conversion") }},
+        {{ adapter.quote("video_views") }},
+        {{ adapter.quote("budget_id") }},
+        {{ adapter.quote("date_start") }},
+        {{ adapter.quote("gmail_forwards") }},
+        {{ adapter.quote("gmail_secondary_clicks") }},
+        {{ adapter.quote("invalid_clicks") }},
+        {{ adapter.quote("campaign_status") }},
+        {{ adapter.quote("conversion_value") }},
+        {{ adapter.quote("conversions") }},
+        {{ adapter.quote("active_view_measurability") }},
+        {{ adapter.quote("active_view_measurable_cost") }},
+        {{ adapter.quote("active_view_viewability") }},
+        {{ adapter.quote("all_conversion_value") }},
+        {{ adapter.quote("all_conversions") }},
+        {{ adapter.quote("cost") }},
+        {{ adapter.quote("interactions") }},
+        {{ adapter.quote("clicks") }},
+        {{ adapter.quote("video_quartile_100_rate") }},
+        {{ adapter.quote("amount") }},
+        {{ adapter.quote("base_campaign_id") }},
+        {{ adapter.quote("bounce_rate") }},
+        {{ adapter.quote("campaign_id") }},
+        {{ adapter.quote("campaign_trial_type") }},
+        {{ adapter.quote("video_quartile_50_rate") }},
+        {{ adapter.quote("active_view_impressions") }},
+        {{ adapter.quote("all_conversion_rate") }},
+        {{ adapter.quote("average_cost") }},
+        {{ adapter.quote("gmail_saves") }},
+        {{ adapter.quote("video_view_rate") }},
+        {{ adapter.quote("active_view_measurable_impressions") }},
+        {{ adapter.quote("adwords_customer_id") }},
+        {{ adapter.quote("average_time_on_site") }},
+        {{ adapter.quote("date_stop") }},
+        {{ adapter.quote("video_quartile_75_rate") }},
+        {{ adapter.quote("engagements") }},
+        {{ adapter.quote("is_budget_explicitly_shared") }}
+
+    from source
+)
+select * from renamed
+  

@@ -1,0 +1,36 @@
+version: 2
+sources:
+  - name: prod
+    schema: OkkeProvisioning
+    freshness:
+      warn_after: {count: 3, period: day}
+      error_after: {count: 5, period: day}
+    loaded_at_field: ModifiedAt
+    tables:
+      - name: users
+        identifier: User
+      - name: subscription_business
+        identifier: SubscriptionBusiness
+      - name: subscription_user
+        identifier: SubscriptionUser
+      - name: tenant
+        identifier: Tenant
+  - name: web
+    schema: OkkeApp
+    freshness:
+      warn_after: {count: 3, period: day}
+      error_after: {count: 5, period: day}
+    loaded_at_field: ModifiedAt
+    tables:
+      - name: bank_feed
+        identifier: BankFeedUser
+      - name: customer_invoice
+        identifier: CustomerInvoice
+      - name: document
+        identifier: Document
+      - name: payment
+        identifier: Payment
+      - name: receipt
+        identifier: Receipt
+      - name: notification_log
+        identifier: NotificationLog

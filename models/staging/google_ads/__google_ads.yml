@@ -1,0 +1,12 @@
+version: 2
+
+sources: 
+  - name: google_ads__ab
+    schema: Ikaros_Schema
+    freshness:
+      warn_after: {count: 1, period: day}
+      error_after: {count: 3, period: day}
+    loaded_at_field: _airbyte_emitted_at
+
+    tables:
+      - name: google_ads__click_view
